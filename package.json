@@ -1,0 +1,25 @@
+{
+  "name": "basic-banking-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/victoryohanna/basic-banking-system.git",
+  "author": "victoryohanna <victoryohanna@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "engines": {
+    "node": "v12.16.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
